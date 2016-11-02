@@ -1,0 +1,12 @@
+clinc-grbl-debug
+
+A GRBL debugging utility.
+
+Usage:
+  clinc-debug [options] <command>
+
+Options:
+  -h --help               Show this screen.
+  --version               Show version.
+  -b --baudrate=<rate>    Serialport baud rate (default: 115200).
+  -s --serialport=<path>  Serialport path (default: '/dev/ttyACM0').

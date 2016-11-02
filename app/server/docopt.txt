@@ -1,0 +1,14 @@
+clinc-server
+
+A bridge between GRBL and the clinc client.
+
+Usage:
+  clinc-server [options]
+
+Options:
+  -h --help               Show this screen.
+  --version               Show version.
+  -b --baudrate=<rate>    Serialport baud rate (default: 115200).
+  -p --server-port=<port> Port on which the server should listen (default: 2983).
+  -s --serialport=<path>  Serialport path (default: '/dev/ttyACM0').
+  -c --colorize           Colorize output

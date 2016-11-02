@@ -1,0 +1,35 @@
+clinc
+
+A minimalist command-line interface for GRBL.
+
+Usage:
+  clinc config
+  clinc [options] send (<commands> | --file=<path>)
+  clinc [options] shell
+
+Options:
+  -h --help               Show this screen.
+  --version               Show version.
+  -p --server-port=<port> Port on which the server should listen (default: 2983).
+
+Examples:
+
+  Seed a config file:
+    clinc config > ~/.clincrc
+
+  Start the clinc server:
+    clinc-server
+
+  Send a command to the grbl server:
+    clinc send '$X'
+
+  Send a file to the grbl server:
+    clinc send --file=/path/to/file.nc
+
+  Start an interactive shell:
+    clinc shell
+
+  Send multiple files with a pause in between (tool change, etc.):
+    clinc send --file=./file-1.nc && \
+      read -p "Tool change required. Press 'Enter' when complete." && \
+      clinc send --file=./file-2.nc

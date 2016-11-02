@@ -1,0 +1,56 @@
+{
+  "name": "clinc",
+  "version": "0.0.1",
+  "description": "A minimalist, scriptable command-line interface for GRBL.",
+  "homepage": "https://github.com/chrisallenlane/clinc",
+  "author": {
+    "name": "Chris Allen Lane",
+    "email": "chris@chris-allen-lane.com"
+  },
+  "scripts": {
+    "lint": "jshint app test",
+    "snyk": "snyk test",
+    "test": "tape 'test/*.js' | faucet"
+  },
+  "jshintConfig": {
+    "laxbreak": true,
+    "esnext": true
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "docopt": "^0.6.2",
+    "lodash": "4.16.6",
+    "rc": "^1.1.6",
+    "serialport": "^4.0.4",
+    "split": "^1.0.0",
+    "text-table": "^0.2.0"
+  },
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "jshint": "2.9.4",
+    "snyk": "^1.19.1",
+    "streamify-string": "^1.0.1",
+    "tape": "^4.6.0"
+  },
+  "keywords": [
+    "arduino",
+    "cnc",
+    "gcode",
+    "grbl",
+    "pi",
+    "raspberry"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chrisallenlane/clinc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chrisallenlane/clinc/issues"
+  },
+  "bin": {
+    "clinc"            : "app/client/index.js",
+    "clinc-server"     : "app/server/index.js",
+    "clinc-grbl-debug" : "app/grbl-debug/index.js"
+  },
+  "main": "app/client/index"
+}

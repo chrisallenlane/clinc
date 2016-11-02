@@ -1,0 +1,24 @@
+{
+  "aliases" : {
+    "check mode"   : "$C",
+    "cycle start"  : "~",
+    "hold"         : "!",
+    "homing cycle" : "$H",
+    "inches"       : "G20",
+    "metric"       : "G21",
+    "reset zero"   : "G28.1",
+    "resume"       : "~",
+    "settings"     : "$$",
+    "unlock"       : "$X",
+    "view build"   : "$I",
+    "view startup" : "$N",
+    "view state"   : "$G",
+    "zero"         : "G28"
+  },
+
+  "server" : {
+    "baudRate"   : 115200,
+    "serverPort" : 9283,
+    "serialPort" : "/dev/ttyACM0"
+  }
+}
