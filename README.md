@@ -23,6 +23,14 @@ Then seed a config file:
 clinc config > ~/.clincrc
 ```
 
+You may need to change the default `server.serialPort` path in `~/.clincrc`. To
+see a list of available serialports, run:
+
+```sh
+clinc-server list
+```
+
+See [the wiki][conf] for an in-depth guide to configuration.
 
 ### Executables ###
 The`clinc` package will install three executables on your `$PATH`:
@@ -36,9 +44,18 @@ Executable         | Purpose
 
 Usage
 -----
-Physically connect your CNC machine to your computer, and then run
-`clinc-server` to open a persistent connection to GRBL. You may then use two
-mechanisms for sending commands:
+Physically connect your CNC machine to your computer, then connect to GRBL
+with:
+
+```sh
+clinc-server -c
+```
+
+Note that `$USER` must have access to the serialport, or `clinc-server` will
+fail with an error. On Debian-based systems, it may be necessary to add `$USER`
+to the `dialout` group. 
+
+You may then use these two commands for sending G-code to `clinc-server`:
 
 - `clinc send (<commands> | --file=<path>)`
 - `clinc shell`
@@ -117,65 +134,6 @@ Note that `.help` will reveal other available dot-commands (including `.help`
 itself). These are built in to [node's REPL object][repl] (upon which `clinc
 shell` is built). They are of no value to `clinc` users, and should be ignored.
 
-
-Configuring
------------
-`clinc` is configured in `~/.clincrc`, and relies on [rc][] for
-configuration management under-the-hood. The following is an example
-`./clincrc` file:
-
-```json
-{
-  "aliases" : {
-    "check mode"   : "$C",
-    "cycle start"  : "~",
-    "hold"         : "!",
-    "homing cycle" : "$H",
-    "inches"       : "G20",
-    "metric"       : "G21",
-    "reset zero"   : "G28.1",
-    "resume"       : "~",
-    "settings"     : "$$",
-    "unlock"       : "$X",
-    "view build"   : "$I",
-    "view startup" : "$N",
-    "view state"   : "$G",
-    "zero"         : "G28"
-  },
-
-  "server" : {
-    "baudRate"   : 115200,
-    "serverPort" : 9283,
-    "serialPort" : "/dev/ttyACM0"
-  }
-}
-```
-
-The configuration provides a mechanism for command aliases, and allows
-specification of `clinc-server` connection parameters.
-
-
-### Aliases ###
-"Aliases" are G-code and GRBL-command shorthands. When an alias is entered into
-the shell (ex: `inches`), its corresponding value (ex: `G20`) is executed in
-its place.
-
-Aliases can be used to implement brief "macros", and are entirely
-user-configurable. There are no hard-coded command aliases.
-
-Aliases will be respected by both `clinc shell` and `clinc send`.
-
-
-### Server Connection Parameters ###
-The config's `server` property defines GRBL and `clinc-server` connection
-parameters.
-
-Property            | Purpose
---------------------|--------------------------------------------------------
-`server.baudRate`   | The GRBL connection baudrate.
-`server.serverPort` | The port that `clinc` and `clinc-server` should use for communication. May be any valid port.
-`server.serialPort` | The path to the serial-port interface. **You will likely need to change this to the value that's appropriate for your system.**
-
-[rc]: https://www.npmjs.com/package/rc
+[conf]: https://github.com/chrisallenlane/clinc/wiki/Configuring
 [repl]: https://nodejs.org/api/repl.html
 [wiki]: https://github.com/chrisallenlane/clinc/wiki

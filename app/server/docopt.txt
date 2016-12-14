@@ -4,6 +4,7 @@ A bridge between GRBL and the clinc client.
 
 Usage:
   clinc-server [options]
+  clinc-server list
 
 Options:
   -h --help               Show this screen.
@@ -12,3 +13,11 @@ Options:
   -p --server-port=<port> Port on which the server should listen (default: 2983).
   -s --serialport=<path>  Serialport path (default: '/dev/ttyACM0').
   -c --colorize           Colorize output
+
+Examples:
+
+  List available serial ports:
+    clinc-server list
+
+  Start the server with colorized output:
+    clinc-server -c

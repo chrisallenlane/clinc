@@ -8,7 +8,7 @@ module.exports = function() {
 
   // manual controls
   cheatsheet += chalk.cyan('Manual Controls\n');
-  cheatsheet += chalk.gray([
+  cheatsheet += [
     'Left         Ctrl + Left Arrow',
     'Right        Ctrl + Right Arrow',
     'Forward      Ctrl + Up Arrow',
@@ -16,18 +16,18 @@ module.exports = function() {
     'Up           PageUp',
     'Down         PageDown',
     'Feed Hold    <F1>',
-  ].join('\n'));
+  ].join('\n');
 
   // dot-commands
   cheatsheet += '\n\n';
   cheatsheet += chalk.green('Dot-commands\n');
-  cheatsheet += chalk.gray([
+  cheatsheet += [
     '.aliases     View user-defined command aliases',
     '.cheat       View this cheatsheet',
     '.reset       Reset GRBL (ctrl+x)',
     '.send        Send a file to GRBL. (Ex: .send /path/to/file.nc)',
     '.step        Change the step distance. (Ex: .step 0.5)',
-  ].join('\n'));
+  ].join('\n');
 
   // GRBL commands
   url         = 'https://github.com/grbl/grbl/wiki/Interfacing-with-Grbl';
@@ -37,7 +37,7 @@ module.exports = function() {
    '(' + chalk.underline.blue(url) + ')\n'
   ].join(' ');
     
-  cheatsheet += chalk.gray([
+  cheatsheet += [
     '$$           View Grbl settings',
     '$#           View # parameters',
     '$G           View parser state',
@@ -52,7 +52,7 @@ module.exports = function() {
     '!            Feed hold',
     '?            Current status',
     'ctrl-x       Reset Grbl',
-  ].join('\n'));
+  ].join('\n');
 
   // G-code Reference
   url         = 'http://www.shapeoko.com/wiki/index.php/G-Code';
@@ -62,7 +62,7 @@ module.exports = function() {
    '(' + chalk.underline.blue(url) + ')\n'
   ].join(' ');
 
-  cheatsheet += chalk.gray([
+  cheatsheet += [
     'G0           Rapid positioning',
     'G1           Linear interpolation',
     'G10          Set Work Coordinate Origin',
@@ -72,7 +72,7 @@ module.exports = function() {
     'G91          Switch to incremental distance mode',
     'F            Defines feed rate',
     'M2           Program Pause and End',
-  ].join('\n'));
+  ].join('\n');
 
   // return the cheatsheet
   return cheatsheet;
