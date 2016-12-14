@@ -24,6 +24,13 @@ const options    = docopt(doc, { version: pkg.version });
 // process the `list` subcommand, if provided
 if (options.list) {
   SerialPort.list(function (err, ports) {
+
+    // handle errors
+    if (err) {
+      console.warn(err);
+      process.exit(1);
+    }
+
     console.log(lodash.filter(ports, 'pnpId'));
     process.exit();
   });
