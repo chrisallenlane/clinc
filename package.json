@@ -1,6 +1,6 @@
 {
   "name": "clinc",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A minimalist, scriptable command-line interface for GRBL.",
   "homepage": "https://github.com/chrisallenlane/clinc",
   "author": {
