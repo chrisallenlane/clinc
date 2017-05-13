@@ -1,19 +1,22 @@
 {
   "aliases" : {
-    "check mode"   : "$C",
-    "cycle start"  : "~",
-    "hold"         : "!",
-    "homing cycle" : "$H",
-    "inches"       : "G20",
-    "metric"       : "G21",
-    "reset zero"   : "G28.1",
-    "resume"       : "~",
-    "settings"     : "$$",
-    "unlock"       : "$X",
-    "view build"   : "$I",
-    "view startup" : "$N",
-    "view state"   : "$G",
-    "zero"         : "G28"
+    "check mode"          : "$C",
+    "cycle start"         : "~",
+    "hold"                : "!",
+    "homing cycle"        : "$H",
+    "inches"              : "G20",
+    "machine zero reset"  : "G28.1",
+    "machine zero return" : "G28",
+    "metric"              : "G21",
+    "raise"               : "G0 Z0",
+    "resume"              : "~",
+    "settings"            : "$$",
+    "unlock"              : "$X",
+    "view build"          : "$I",
+    "view startup"        : "$N",
+    "view state"          : "$G",
+    "work zero reset"     : "G92 X0 Y0 Z0",
+    "work zero return"    : "G90 G0 X0 Y0 Z0"
   },
 
   "server" : {
