@@ -6,9 +6,9 @@
     "homing cycle"        : "$H",
     "inches"              : "G20",
     "machine zero reset"  : "G28.1",
-    "machine zero return" : "G28",
+    "machine zero return" : "G90 G0 Z0\nG28",
     "metric"              : "G21",
-    "raise"               : "G0 Z0",
+    "raise"               : "G90 G0 Z0",
     "resume"              : "~",
     "settings"            : "$$",
     "unlock"              : "$X",
@@ -16,7 +16,7 @@
     "view startup"        : "$N",
     "view state"          : "$G",
     "work zero reset"     : "G92 X0 Y0 Z0",
-    "work zero return"    : "G90 G0 X0 Y0 Z0"
+    "work zero return"    : "G90 G0 Z0\nG90 X0 Y0"
   },
 
   "server" : {
