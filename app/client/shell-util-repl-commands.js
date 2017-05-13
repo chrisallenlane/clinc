@@ -1,8 +1,9 @@
-const chalk = require('chalk');
-const cheat = require('./shell-util-cheat');
-const fs    = require('fs');
-const net   = require('net');
-const table = require('text-table');
+const chalk  = require('chalk');
+const cheat  = require('./shell-util-cheat');
+const fs     = require('fs');
+const lodash = require('lodash');
+const net    = require('net');
+const table  = require('text-table');
 
 module.exports = function(config, state) {
 
@@ -15,10 +16,17 @@ module.exports = function(config, state) {
     action : function(input) {
 
       // restructure keys/vals into nested arrays
-      const rows = Object.keys(config.aliases).map(function(key) {
+      const rows = Object.keys(config.aliases || {}).map(function(key) {
         return [ key, config.aliases[key] ];
       });
 
+      // notify the user if no aliases are set
+      if (lodash.isEmpty(rows)) {
+        this.emit('info', chalk.green('No aliases are configured.'));
+        return;
+      }
+
+      // otherwise, display the aliases
       this.emit('info', chalk.green(table(rows)));
     },
   };
